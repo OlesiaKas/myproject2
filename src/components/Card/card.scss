@@ -1,0 +1,49 @@
+.item {
+  height: 12rem;
+  width: 8rem;
+  margin: 2rem;
+  padding: 2rem;
+  background-color: var(--dark-gr);
+  border-radius: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  color: var(--light-font);
+  /* grid-template-columns: auto;
+    grid-template-rows: 1fr 2fr 2rem;
+    grid-template-areas:
+      "favorite"
+      "title"
+      "description"
+      "button";
+    .favorite-icon {
+      grid-area: favorites;
+      margin-left: auto;
+      color: #859b9a;
+      width: 1.5rem;
+      height: 1.5rem;
+      cursor: pointer;
+      &--active {
+        color: var(--grey-50);
+      }
+    }*/
+  h3 {
+    /* grid-area: title;*/
+    font-size: 1.5rem;
+  }
+  p {
+    /* grid-area: description;*/
+    font-size: 1rem;
+  }
+  /* button {
+      grid-area: button;
+      background-color: var(--orange-300);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      &:hover {
+        background-color: var(--teal-300);
+      }
+      &:active {
+        opacity: unset;
+      }
+    }*/
+}
