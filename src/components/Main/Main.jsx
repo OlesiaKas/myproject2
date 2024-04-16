@@ -13,6 +13,7 @@ function Main() {
           key={item.title}
           title={item.title}
           description={item.description}
+          link={item.link}
         />
       ))}
     </main>

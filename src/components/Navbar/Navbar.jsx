@@ -8,6 +8,9 @@ function Navbar() {
       <p>Buhalterinių paslaugų įmonė</p>
       <ul>
         <li>
+          <NavLink to="/">Pagrindinis puslapis</NavLink>
+        </li>
+        <li>
           <NavLink to="/reviews">Atsiliepimai</NavLink>
         </li>
         <li>
@@ -15,9 +18,6 @@ function Navbar() {
         </li>
         <li>
           <NavLink to="/contact">Kontaktai</NavLink>
-        </li>
-        <li>
-          <NavLink to="/cart">Krepšelis</NavLink>
         </li>
       </ul>
     </div>
