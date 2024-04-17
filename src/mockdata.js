@@ -2,31 +2,31 @@ export const mockData = [
   {
     title: "MB apskaita",
     description: "nuo 20 EUR",
-    link: "https://accountingagency.netlify.app/mb",
+    profile_link: "/mb",
   },
   {
     title: "UAB apskaita",
     description: "nuo 40 EUR",
-    link: "https://accountingagency.netlify.app/uab",
+    profile_link: "/uab",
   },
   {
     title: "AB apskaita",
     description: "nuo 40 EUR",
-    link: "https://accountingagency.netlify.app/ab",
+    profile_link: "/ab",
   },
   {
     title: "IĮ apskaita",
     description: "nuo 40 EUR",
-    link: "https://accountingagency.netlify.app/ii",
+    profile_link: "/ii",
   },
   {
     title: "UB apskaita",
     description: "nuo 40 EUR",
-    link: "https://accountingagency.netlify.app/ub",
+    profile_link: "/ub",
   },
   {
     title: "IV apskaita",
     description: "nuo 40 EUR",
-    link: "http://localhost:3000/iv",
+    profile_link: "/iv",
   },
 ];
