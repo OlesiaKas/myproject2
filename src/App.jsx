@@ -19,7 +19,6 @@ function App() {
   return (
     <>
       <Navbar />
-
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/reviews" element={<Reviews />} />

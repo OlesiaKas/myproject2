@@ -46,4 +46,16 @@
         opacity: unset;
       }
     }*/
+  .button {
+    background-color: var(----light-font);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+      background-color: var(--dark-gr);
+    }
+    &:active {
+      opacity: unset;
+    }
+  }
 }
