@@ -2,8 +2,6 @@ import React from "react";
 import Button from "../Buttons/Buttons";
 import "./card.scss";
 
-import { Link } from "react-router-dom";
-
 function Card(props) {
   return (
     <div className="item">
