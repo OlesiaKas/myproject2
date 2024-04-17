@@ -9,11 +9,13 @@ function Card(props) {
     <div className="item">
       <h3>{props.title}</h3>
       <p>{props.description}</p>
-      <Link to={props.profile_link} className="button">
-        Daugiau informacijos
-      </Link>
 
-      <Button type="gold" onClick={() => window.open(props.link)}></Button>
+      <Button
+        type="gold"
+        onClick={() => (window.location.href = props.profile_link)}
+      >
+        Daugiau informacijos
+      </Button>
     </div>
   );
 }
