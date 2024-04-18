@@ -8,16 +8,44 @@ function Navbar() {
       <p>Buhalterinių paslaugų įmonė</p>
       <ul>
         <li>
-          <NavLink to="/">Pagrindinis puslapis</NavLink>
+          <NavLink
+            to="/"
+            style={({ isActive }) => {
+              return isActive ? { color: "black" } : {};
+            }}
+          >
+            Pagrindinis puslapis
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/reviews">Atsiliepimai</NavLink>
+          <NavLink
+            to="/reviews"
+            style={({ isActive }) => {
+              return isActive ? { color: "black" } : {};
+            }}
+          >
+            Atsiliepimai
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/useful">Naudinga informacija</NavLink>
+          <NavLink
+            to="/useful"
+            style={({ isActive }) => {
+              return isActive ? { color: "black" } : {};
+            }}
+          >
+            Naudinga informacija
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/contact">Kontaktai</NavLink>
+          <NavLink
+            to="/contact"
+            style={({ isActive }) => {
+              return isActive ? { color: "black" } : {};
+            }}
+          >
+            Kontaktai
+          </NavLink>
         </li>
       </ul>
     </div>

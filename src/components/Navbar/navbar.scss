@@ -12,7 +12,6 @@
   ul {
     display: flex;
     list-style: none;
-    gap: 1rem;
     align-items: center;
 
     li {
@@ -26,7 +25,7 @@
       }
 
       &:hover {
-        color: var(--grey-300);
+        color: var(--dark-gr);
       }
     }
   }
@@ -35,8 +34,13 @@
   p {
     font-size: 1.2rem;
   }
-  li {
-    font-size: 0.8rem;
+  ul {
+    gap: 0.5rem;
+
+    li {
+      font-size: 0.8rem;
+      font-weight: 400;
+    }
   }
   .container {
     padding: 0.5rem 1rem;
@@ -47,8 +51,11 @@
     font-size: 2rem;
     font-weight: 600;
   }
-  li {
-    font-size: 1.2rem;
+  ul {
+    gap: 2rem;
+    li {
+      font-size: 1.2rem;
+    }
   }
   .container {
     padding: 1rem 2rem;
