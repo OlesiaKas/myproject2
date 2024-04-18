@@ -14,11 +14,13 @@ import Ub from "./components/Ub/Ub";
 import Ii from "./components/Ii/Ii";
 import Iv from "./components/Iv/Iv";
 import Uab from "./components/Uab/Uab";
+import NewsComponent from "./components/Vmiblock/Vmiblock";
 
 function App() {
   return (
     <>
       <Navbar />
+      <NewsComponent />
 
       <Routes>
         <Route path="/" element={<Main />} />
