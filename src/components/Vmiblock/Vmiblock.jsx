@@ -1,34 +1,27 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { createContext, useState, useEffect } from "react";
 
-const NewsComponent = () => {
-  const [newsData, setNewsData] = useState([]);
+export const VmiBlock = createContext();
 
+function NewsComponent(props) {
+  const [data, setData] = useState([]);
   useEffect(() => {
-    const fetchData = async () => {
+    const fecthData = async () => {
       try {
-        const response = await axios.get(
+        const response = await fetch(
           "https://www.vmi.lt/evmi/mokesciu-zinynas"
         );
-        setNewsData(response.data);
-      } catch (error) {
-        console.error("Error fetching news data:", error);
-      }
+        console.log("response", response);
+        const news = await response.json();
+        console.log("data", news);
+        setData(news);
+      } catch (error) {}
     };
-
-    fetchData();
-  }, []);
+    fecthData();
+  });
 
   return (
-    <div>
-      <h1>News</h1>
-      <ul>
-        {newsData.map((item, index) => (
-          <li key={index}>{item.title}</li>
-        ))}
-      </ul>
-    </div>
+    <VmiBlock.Provider value={{ data }}>{props.children}</VmiBlock.Provider>
   );
-};
+}
 
 export default NewsComponent;

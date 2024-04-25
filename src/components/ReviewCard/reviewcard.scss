@@ -1,0 +1,17 @@
+.reviewcard {
+  height: 12rem;
+  width: 8rem;
+  margin: 2rem;
+  padding: 2rem;
+  background-color: var(--dark-100);
+  border-radius: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  color: var(--dark-gr);
+
+  h3 {
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+}
