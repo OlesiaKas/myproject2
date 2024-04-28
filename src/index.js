@@ -5,7 +5,6 @@ import AppContextProvider from "./context/AppContext";
 import "./variables.css";
 import "./index.css";
 import App from "./App";
-import NewsComponent from "./components/Vmiblock/Vmiblock";
 
 export const AppContext = createContext();
 
@@ -14,7 +13,6 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AppContextProvider>
-        <NewsComponent />
         <App />
       </AppContextProvider>
     </BrowserRouter>

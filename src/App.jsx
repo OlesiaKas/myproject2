@@ -31,7 +31,6 @@ function App() {
         <Route path="/ii" element={<Ii />} />
         <Route path="/iv" element={<Iv />} />
         <Route path="/uab" element={<Uab />} />
-        <Route path="/addcomment" element={<Reviews />} />
       </Routes>
     </>
   );
