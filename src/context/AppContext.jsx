@@ -1,10 +1,11 @@
-import React, { useState, createContext, useEffect } from "react";
+import { useState, createContext, useEffect } from "react";
 import { cfg } from "../cfg/cfg.js";
 
 export const AppContext = createContext();
 
 function AppContextProvider(props) {
   const [data, setData] = useState([]);
+  console.log("data", data);
   useEffect(() => {
     const fecthData = async () => {
       try {
@@ -18,9 +19,7 @@ function AppContextProvider(props) {
     fecthData();
   });
 
-  return (
-    <AppContext.Provider value={{ data }}>{props.children}</AppContext.Provider>
-  );
+  return; //<AppContext.Provider value={{ data }}>{props.children}</AppContext.Provider>
 }
 
 export default AppContextProvider;
