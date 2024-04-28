@@ -26,8 +26,8 @@ function Reviews() {
     try {
       setLoading(true);
       const datar = {
-        RevTitle: title,
-        RevName: description,
+        title,
+        description,
       };
       console.log("datar", datar);
       const response = await fetch(`${cfg.API.HOST}/reviews`, {
@@ -88,8 +88,8 @@ function Reviews() {
         {data.map((item) => (
           <ReviewCard
             key={item.id}
-            title={item.RevTitle}
-            description={item.RevName}
+            title={item.title}
+            description={item.description}
           />
         ))}
       </div>
