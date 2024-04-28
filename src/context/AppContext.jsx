@@ -1,4 +1,5 @@
 import React, { useState, createContext, useEffect } from "react";
+import { cfg } from "../cfg/cfg.js";
 
 export const AppContext = createContext();
 
@@ -7,7 +8,7 @@ function AppContextProvider(props) {
   useEffect(() => {
     const fecthData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/reviews");
+        const response = await fetch(`${cfg.API.HOST}/reviews`);
         console.log("response", response);
         const review = await response.json();
         console.log("data", review);
