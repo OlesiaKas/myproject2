@@ -5,7 +5,7 @@ import "./App.scss";
 //components
 import Navbar from "./components/Navbar/Navbar";
 import Main from "./components/Main/Main";
-import Reviews from "./components/Reviews/Reviews";
+import AllReviews from "./components/Reviews/Reviews";
 import Useful from "./components/Useful/Useful";
 import Contact from "./components/Contact/Contact";
 import Mb from "./components/MB/Mb";
@@ -22,7 +22,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/reviews" element={<Reviews />} />
+        <Route path="/reviews" element={<AllReviews />} />
         <Route path="/useful" element={<Useful />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/mb" element={<Mb />} />
