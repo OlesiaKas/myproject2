@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Form, Col, Row, Spinner, Container, Alert } from "react-bootstrap";
+import { Form, Col, Row, Spinner, Alert, Container } from "react-bootstrap";
 import { AppContext } from "../../context/AppContext";
 import { cfg } from "../../cfg/cfg";
 
@@ -11,19 +11,17 @@ function AddReviews() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState({
-    value: null,
+    value: "success",
     message: "",
   });
 
   const { fetchData } = useContext(AppContext);
   const handleSubmit = async (e) => {
+    const form = e.currentTarget;
     e.preventDefault();
     setValidated(true);
 
-    const form = e.currentTarget;
-
     if (!form.checkValidity()) return;
-    console.log("submitted");
 
     try {
       setLoading(true);
@@ -32,7 +30,7 @@ function AddReviews() {
         title,
         description,
       };
-      console.log("data", data);
+
       const response = await fetch(`${cfg.API.HOST}/reviews`, {
         method: "POST",
         headers: {
@@ -43,30 +41,21 @@ function AddReviews() {
       console.log("response", response);
       const review = await response.json();
 
-      if (!response.ok) {
-        throw new Error(review.message);
-      }
+      if (!response.ok) throw new Error(review.error);
+
       console.log("data", review);
       setStatus({ value: "success", message: "Atsiliepimas išsaugotas" });
       fetchData();
-    } catch (error) {
-      setStatus({
-        value: "danger",
-        message: error.message || "Nepavyko išsaugoti atsiliepimo",
-      });
-    } finally {
-      setLoading(false);
-    }
+    } catch (error) {}
   };
 
   return (
-    <main className="reviews-container">
+    <main className="container">
       <Container>
         {status.value && <Alert variant={status.value}>{status.message}</Alert>}
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Row>
             <Form.Group as={Col} md="4" controlId="validationCustom01">
-              <Form.Label>Vardas</Form.Label>
               <Form.Control
                 required
                 type="text"
@@ -74,15 +63,10 @@ function AddReviews() {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
-              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-              <Form.Control.Feedback type="invalid">
-                Title is required!
-              </Form.Control.Feedback>
             </Form.Group>
           </Row>
           <Row>
             <Form.Group as={Col} md="4" controlId="validationCustom02">
-              <Form.Label>Atsiliepimas</Form.Label>
               <Form.Control
                 required
                 as="textarea"
@@ -90,10 +74,6 @@ function AddReviews() {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               />
-              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-              <Form.Control.Feedback type="invalid">
-                Description is required!
-              </Form.Control.Feedback>
             </Form.Group>
           </Row>
 

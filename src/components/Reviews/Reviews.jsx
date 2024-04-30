@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 
 import AddReview from "../Reviews/AddReview";
-
 import ReviewCard from "../ReviewCard/ReviewCard";
 import { AppContext } from "../../context/AppContext";
 
@@ -14,6 +13,7 @@ function AllReviews() {
       <div>
         <AddReview />;
       </div>
+
       <div className="reviews-container">
         {data.map((item, index) => (
           <ReviewCard

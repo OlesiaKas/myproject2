@@ -4,7 +4,7 @@ import "./navbar.scss";
 
 function Navbar() {
   return (
-    <div className="container">
+    <div className="my-container">
       <p>Buhalterinių paslaugų įmonė</p>
       <ul>
         <li>
