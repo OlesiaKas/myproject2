@@ -14,6 +14,7 @@ import Ub from "./components/Ub/Ub";
 import Ii from "./components/Ii/Ii";
 import Iv from "./components/Iv/Iv";
 import Uab from "./components/Uab/Uab";
+import CurrencyConverter from "./components/Currency/currency";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/ii" element={<Ii />} />
         <Route path="/iv" element={<Iv />} />
         <Route path="/uab" element={<Uab />} />
+        <Route path="/currency" element={<CurrencyConverter />} />
       </Routes>
     </>
   );

@@ -4,8 +4,8 @@ import "./contact.scss";
 
 function Contact() {
   return (
-    <div style={{ textAlign: "center" }}>
-      <h1 style={{ fontSize: "2rem" }}>Kontaktai</h1>
+    <div className="contact">
+      <h1>Kontaktai</h1>
       UAB Apvila <br />
       Įmonės kodas: 305681801 <br />
       PVM mokėtojo kodas: LT100013723119 <br />

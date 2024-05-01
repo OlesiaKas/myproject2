@@ -1,5 +1,11 @@
 * {
   font-family: sans-serif;
+  h1,
+  h2,
+  h3,
+  p {
+    color: var(--dark-gr);
+  }
 }
 .main-container {
   display: flex;

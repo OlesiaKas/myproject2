@@ -5,8 +5,8 @@ import "./card.scss";
 function Card(props) {
   return (
     <div className="item">
-      <h3>{props.title}</h3>
-      <p>{props.description}</p>
+      <h5>{props.title}</h5>
+      <h6>{props.description}</h6>
 
       <Button
         type="gold"
