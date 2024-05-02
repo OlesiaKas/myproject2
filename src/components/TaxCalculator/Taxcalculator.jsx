@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "../Buttons/Buttons";
+import "./taxcalculator.scss";
 
 const TaxCalculator = () => {
   const [grossWage, setGrossWage] = useState("");
@@ -19,8 +20,14 @@ const TaxCalculator = () => {
     const healthTax = (grossWage * healthTaxRate) / 100;
     const pensionTax = (grossWage * pensionTaxRate) / 100;
     const employerContribution = (grossWage * employerContributionRate) / 100;
+    let nonTaxableSum;
 
-    const nonTaxableSum = nonTaxableRate - 0.5 * (grossWage - 924);
+    if (grossWage <= 2167) {
+      nonTaxableSum = Math.max(nonTaxableRate - 0.5 * (grossWage - 924), 0);
+    } else {
+      nonTaxableSum = Math.max(nonTaxableRate - 0.18 * (grossWage - 642), 0);
+    }
+
     const taxableIncome = Math.max(grossWage - nonTaxableSum, 0);
     const incomeTax = (taxableIncome * incomeTaxRate) / 100;
     const totalTaxes = socialTax + healthTax + incomeTax + pensionTax;
@@ -37,98 +44,117 @@ const TaxCalculator = () => {
 
   return (
     <>
-      <h2>Darbo užmokestis į rankas</h2>
+      <div className="taxcalculator">
+        <h2>Darbo užmokestis į rankas</h2>
 
-      <table>
-        <tbody>
-          <tr>
-            <td>Darbo užmokestis ant popieriaus (EUR):</td>
-            <td>
-              <input
-                type="number"
-                value={grossWage}
-                onChange={(e) => setGrossWage(e.target.value)}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>Pensijų socialinis draudimas:</td>
-            <td>
-              <input
-                disabled={true}
-                type="number"
-                value={socialTaxRate}
-                onChange={(e) => handleInputChange(e, setSocialTaxRate)}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>Sveikatos, Ligos, Motinystės draudimas:</td>
-            <td>
-              <input
-                disabled={true}
-                type="number"
-                value={healthTaxRate}
-                onChange={(e) => handleInputChange(e, setHealthTaxRate)}
-              />
-            </td>
-          </tr>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                {" "}
+                <h4>Darbo užmokestis ant popieriaus:</h4>
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value={grossWage}
+                  onChange={(e) => setGrossWage(e.target.value)}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>Pensijų socialinis draudimas:</h4>
+              </td>
+              <td>
+                <input
+                  disabled={true}
+                  type="number"
+                  value={socialTaxRate}
+                  onChange={(e) => handleInputChange(e, setSocialTaxRate)}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>Sveikatos, Ligos, Motinystės draudimas:</h4>
+              </td>
+              <td>
+                <input
+                  disabled={true}
+                  type="number"
+                  value={healthTaxRate}
+                  onChange={(e) => handleInputChange(e, setHealthTaxRate)}
+                />
+              </td>
+            </tr>
 
-          <tr>
-            <td>Papildomas pensijų draudimas (0 arba 3 proc.):</td>
-            <td>
-              <input
-                type="number"
-                value={pensionTaxRate}
-                onChange={(e) => handleInputChange(e, setPensionTaxRate)}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>Gyventojų pajamų mokestis:</td>
-            <td>
-              <input
-                disabled={true}
-                type="number"
-                value={incomeTaxRate}
-                onChange={(e) => handleInputChange(e, setIncomeTaxRate)}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>Neapmokestinamasis pajamų dydis (0 EUR, 400 EUR, 747 EUR):</td>
-            <td>
-              <input
-                type="number"
-                value={nonTaxableRate}
-                onChange={(e) => handleInputChange(e, setNonTaxableRate)}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>Darbdavio įmoka (1,77 arba 2,49 proc.):</td>
-            <td>
-              <input
-                type="number"
-                value={employerContributionRate}
-                onChange={(e) =>
-                  handleInputChange(e, setEmployerContributionRate)
-                }
-              />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <Button onClick={calculateNetWage}>Skaičiuoti</Button>
-      {netWage > 0 && (
-        <>
-          <h3>Darbo užmokestis į rankas: {netWage.toFixed(2)} EUR</h3>
-          <h3>
-            Darbdavio įmoka:
-            {employerContribution.toFixed(2)} EUR
-          </h3>
-        </>
-      )}
+            <tr>
+              <td>
+                <h4>Papildomas pensijų draudimas (0 arba 3 proc.):</h4>
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value={pensionTaxRate}
+                  onChange={(e) => handleInputChange(e, setPensionTaxRate)}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>Gyventojų pajamų mokestis:</h4>
+              </td>
+              <td>
+                <input
+                  disabled={true}
+                  type="number"
+                  value={incomeTaxRate}
+                  onChange={(e) => handleInputChange(e, setIncomeTaxRate)}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>
+                  Neapmokestinamasis pajamų dydis (0 EUR, 400 EUR, 747 EUR):
+                </h4>
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value={nonTaxableRate}
+                  onChange={(e) => handleInputChange(e, setNonTaxableRate)}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>Darbdavio įmoka (1,77 arba 2,49 proc.):</h4>
+              </td>
+              <td>
+                <input
+                  type="number"
+                  value={employerContributionRate}
+                  onChange={(e) =>
+                    handleInputChange(e, setEmployerContributionRate)
+                  }
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <Button onClick={calculateNetWage}>Skaičiuoti</Button>
+        {netWage > 0 && (
+          <>
+            <h3>Darbo užmokestis į rankas: {netWage.toFixed(2)} EUR</h3>
+            <h3>
+              Darbdavio įmoka:
+              {employerContribution.toFixed(2)} EUR
+            </h3>
+          </>
+        )}
+      </div>
     </>
   );
 };
