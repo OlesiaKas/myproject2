@@ -15,6 +15,7 @@ import Ii from "./components/Ii/Ii";
 import Iv from "./components/Iv/Iv";
 import Uab from "./components/Uab/Uab";
 import CurrencyConverter from "./components/Currency/currency";
+import TaxCalculator from "./components/TaxCalculator/Taxcalculator";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/iv" element={<Iv />} />
         <Route path="/uab" element={<Uab />} />
         <Route path="/currency" element={<CurrencyConverter />} />
+        <Route path="/taxcalculator" element={<TaxCalculator />} />
       </Routes>
     </>
   );

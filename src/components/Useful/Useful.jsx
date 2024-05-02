@@ -8,12 +8,22 @@ function Useful() {
     <>
       <div className="useful">
         <div>Naudinga informacija:</div>
-        <Button
-          type="gold"
-          onClick={() => (window.location.href = "/currency")}
-        >
-          Valiutos keitimas
-        </Button>
+        <div>
+          <Button
+            type="gold"
+            onClick={() => (window.location.href = "/currency")}
+          >
+            Valiutos keitimas
+          </Button>
+        </div>
+        <div>
+          <Button
+            type="gold"
+            onClick={() => (window.location.href = "/taxcalculator")}
+          >
+            Algos skaičiavimas
+          </Button>
+        </div>
       </div>
       ;
     </>
